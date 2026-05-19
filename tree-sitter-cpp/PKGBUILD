@@ -1,0 +1,37 @@
+# Maintainer: Amit Srivastava <xkimdr@gmail.com>
+pkgname=tree-sitter-cpp
+pkgver=0.23.4
+pkgrel=1
+pkgdesc='Cpp grammar for tree-sitter'
+arch=('x86_64')
+url=https://github.com/tree-sitter/tree-sitter-cpp
+license=('MIT')
+groups=('tree-sitter-grammars')
+makedepends=('git' 'tree-sitter-cli')
+optdepends=('tree-sitter: core library')
+provides=("lib$pkgname.so")
+source=("$pkgname.tar.gz::$url/releases/download/v$pkgver/$pkgname.tar.xz")
+noextract=("$pkgname.tar.gz")
+b2sums=('409f866165e81845ace0e59e388477b254de3b2d099370d7a0d580adaa7de889d8d55915caff35102be33e174dae40ac56815190cbf300f8128d7d51fe0ed7e5')
+
+prepare() {
+    mkdir "${pkgname}"
+    tar --strip-components=0 -xvf "${pkgname}.tar.gz" -C "${pkgname}"
+    cd "${pkgname}"
+    tree-sitter generate src/grammar.json
+}
+
+build() {
+    cd "${pkgname}"
+    make PREFIX=/usr PARSER_URL="${url}"
+}
+
+package() {
+    install -d "${pkgdir}"/usr/lib/tree_sitter
+    ln -s /usr/lib/lib${pkgname}.so "$pkgdir"/usr/lib/tree_sitter/${pkgname#tree-sitter-}.so
+
+    cd "${pkgname}"
+    make DESTDIR="${pkgdir}" PREFIX=/usr install
+    install -Dm644 -t "$pkgdir"/usr/share/doc/${pkgname} README.md
+    install -Dm644 -t "$pkgdir"/usr/share/licenses/${pkgname} LICENSE
+}
