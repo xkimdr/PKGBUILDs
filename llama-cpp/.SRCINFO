@@ -1,6 +1,6 @@
 pkgbase = llama-cpp
 	pkgdesc = LLM inference in C/C++
-	pkgver = b9222
+	pkgver = b9247
 	pkgrel = 1
 	url = https://github.com/ggml-org/llama.cpp
 	arch = x86_64
@@ -23,9 +23,7 @@ pkgbase = llama-cpp
 	conflicts = llama.cpp
 	conflicts = ggml
 	conflicts = libggml
-	options = lto
-	options = !debug
-	source = llama-cpp-b9222.tar.gz::https://github.com/ggml-org/llama.cpp/archive/refs/tags/b9222.tar.gz
-	sha256sums = 3789ae5b17f6a989e653258c857204214df91cb1a116c15acbfa1fe15594ed1b
+	source = llama-cpp-b9247.tar.gz::https://github.com/ggml-org/llama.cpp/archive/refs/tags/b9247.tar.gz
+	sha256sums = cd41d08c778ebd9f7dff13eaad2732a27b68e3e257ca04170261a9009b449268
 
 pkgname = llama-cpp

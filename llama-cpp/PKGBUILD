@@ -1,6 +1,6 @@
 # Maintainer: Amit Srivastava <xkimdr@gmail.com>
 pkgname=llama-cpp
-pkgver=b9222
+pkgver=b9247
 pkgrel=1
 pkgdesc="LLM inference in C/C++ "
 arch=('x86_64')
@@ -21,7 +21,7 @@ optdepends=(
 provides=('llama.cpp' 'ggml' 'libggml')
 conflicts=('llama.cpp' 'ggml' 'libggml')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('b49a83f3783d9386e01c182f31371ad12bf7320e62370885e14bdf863733683c')
+sha256sums=('cd41d08c778ebd9f7dff13eaad2732a27b68e3e257ca04170261a9009b449268')
 
 _pkgname=llama.cpp
 
@@ -50,5 +50,7 @@ build() {
 
 package() {
     DESTDIR="${pkgdir}" cmake --install build
-    install -Dm644 "${srcdir}/${_pkgname}-${pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+    cd "${_pkgname}-${pkgver}"
+    install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" LICENSE
 }
