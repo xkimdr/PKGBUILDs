@@ -1,5 +1,4 @@
 *.tar.gz
 *.zst
-.SRCINFO
 src
 pkg
