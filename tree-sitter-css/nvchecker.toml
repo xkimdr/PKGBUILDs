@@ -1,0 +1,5 @@
+[tree-sitter-cpp]
+source = "github"
+github = "tree-sitter/tree-sitter-css"
+use_latest_release = true
+prefix = "v"
