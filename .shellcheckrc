@@ -1,0 +1,5 @@
+# Force bash syntax for your PKGBUILD files
+shell=bash
+
+# Disable the specific rules you wanted to exclude
+disable=SC2034,SC2154,SC2164
