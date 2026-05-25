@@ -1,8 +1,8 @@
 # Maintainer: Amit Srivastava <xkimdr@gmail.com>
 pkgname=tree-sitter-css
 pkgver=0.25.0
-pkgrel=1
-pkgdesc='Css grammar for tree-sitter'
+pkgrel=2
+pkgdesc='css grammar for tree-sitter'
 arch=('x86_64')
 url=https://github.com/tree-sitter/tree-sitter-css
 license=('MIT')
@@ -11,18 +11,13 @@ makedepends=('git' 'tree-sitter-cli')
 optdepends=('tree-sitter: core library')
 provides=("lib${pkgname}.so")
 source=("${pkgname}.tar.gz::${url}/releases/download/v${pkgver}/${pkgname}.tar.gz")
-noextract=("${pkgname}.tar.gz")
 b2sums=('95c2a4815fbd103d52222d9ee1c5743fa805c80affd61fa55e26746eac0fdbeb5a0f0e0fb8cadd6085a51b0d016741e6c0df30713dd90b5247bdfb2e4da494a0')
 
 prepare() {
-    mkdir "${pkgname}"
-    tar --strip-components=0 -xvf "${pkgname}.tar.gz" -C "${pkgname}"
-    cd "${pkgname}"
     tree-sitter generate src/grammar.json
 }
 
 build() {
-    cd "${pkgname}"
     make PREFIX=/usr PARSER_URL="${url}"
 }
 
@@ -30,7 +25,6 @@ package() {
     install -d "${pkgdir}/usr/lib/tree_sitter"
     ln -s "/usr/lib/lib${pkgname}.so" "${pkgdir}/usr/lib/tree_sitter/${pkgname#tree-sitter-}.so"
 
-    cd "${pkgname}"
     make DESTDIR="${pkgdir}" PREFIX=/usr install
     install -Dm644 -t "${pkgdir}/usr/share/doc/${pkgname}" README.md
     install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" LICENSE

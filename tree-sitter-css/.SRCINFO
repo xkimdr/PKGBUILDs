@@ -1,7 +1,7 @@
 pkgbase = tree-sitter-css
-	pkgdesc = Css grammar for tree-sitter
+	pkgdesc = css grammar for tree-sitter
 	pkgver = 0.25.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/tree-sitter/tree-sitter-css
 	arch = x86_64
 	groups = tree-sitter-grammars
@@ -10,7 +10,6 @@ pkgbase = tree-sitter-css
 	makedepends = tree-sitter-cli
 	optdepends = tree-sitter: core library
 	provides = libtree-sitter-css.so
-	noextract = tree-sitter-css.tar.gz
 	source = tree-sitter-css.tar.gz::https://github.com/tree-sitter/tree-sitter-css/releases/download/v0.25.0/tree-sitter-css.tar.gz
 	b2sums = 95c2a4815fbd103d52222d9ee1c5743fa805c80affd61fa55e26746eac0fdbeb5a0f0e0fb8cadd6085a51b0d016741e6c0df30713dd90b5247bdfb2e4da494a0
 
