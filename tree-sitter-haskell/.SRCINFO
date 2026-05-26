@@ -1,0 +1,16 @@
+pkgbase = tree-sitter-haskell
+	pkgdesc = haskell grammar for tree-sitter
+	pkgver = 0.23.1
+	pkgrel = 1
+	url = https://github.com/tree-sitter/tree-sitter-haskell
+	arch = x86_64
+	groups = tree-sitter-grammars
+	license = MIT
+	makedepends = git
+	makedepends = tree-sitter-cli
+	optdepends = tree-sitter: core library
+	provides = libtree-sitter-haskell.so
+	source = tree-sitter-haskell.tar.gz::https://github.com/tree-sitter/tree-sitter-haskell/archive/refs/tags/v0.23.1.tar.gz
+	b2sums = 680fbd0c57088a83fb2026d97acae2f4571ce4cea602577a54a0af84d970ed9d0159deaaa152a459b1d108334fd6ac7a807c773bcb26a2df65d0c550d2367df2
+
+pkgname = tree-sitter-haskell

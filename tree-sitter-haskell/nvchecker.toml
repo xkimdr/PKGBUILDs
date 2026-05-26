@@ -1,0 +1,5 @@
+[tree-sitter-haskell]
+source = "github"
+github = "tree-sitter/tree-sitter-haskell"
+use_latest_release = true
+prefix = "v"
