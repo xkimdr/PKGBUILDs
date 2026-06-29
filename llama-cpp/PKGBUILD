@@ -1,6 +1,6 @@
 # Maintainer: Amit Srivastava <xkimdr@gmail.com>
 pkgname=llama-cpp
-pkgver=b9775
+pkgver=b9842
 pkgrel=1
 pkgdesc="LLM inference in C/C++"
 arch=('x86_64')
@@ -21,7 +21,7 @@ optdepends=(
 provides=('llama.cpp' 'ggml' 'libggml')
 conflicts=('llama.cpp' 'ggml' 'libggml')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('e4826441645ece8a2280087d0a2c14074c234943acf30f623f1da9356490b960')
+sha256sums=('5fe27c1b2c147798ce08c883d027895c65a4ae4cfc6bd42c3088f890cac1576c')
 
 _pkgname=llama.cpp
 
